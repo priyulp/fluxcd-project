@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: predictyourday
+  namespace: predictyourday
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - predictyourday-gateway
+  http:
+    - route:
+        - destination:
+            host: predictyourday
+            subset: primary
+          weight: 100
