@@ -4,6 +4,7 @@ metadata:
   name: predictyourday
   labels:
     app: predictyourday
+  namespace: predictyourday
 spec:
   replicas: 2
   selector:
