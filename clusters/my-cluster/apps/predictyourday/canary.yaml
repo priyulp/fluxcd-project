@@ -13,7 +13,7 @@ spec:
   analysis:
     interval: 1m             # Time between metric checks
     threshold: 5             # Max failures before rollback
-    maxWeight: 95            # Max % of traffic to canary
+    maxWeight: 50            # Max % of traffic to canary
     stepWeight: 10           # % traffic to shift per step
     metrics:
       - name: request-success-rate
