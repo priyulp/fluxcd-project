@@ -4,13 +4,15 @@ metadata:
   name: predictyourday
   namespace: predictyourday
 spec:
+  gateways:
+    - predictyourday-gateway  # Change from "mesh" to this
   hosts:
     - "*"
-  gateways:
-    - predictyourday-gateway
   http:
     - route:
         - destination:
-            host: predictyourday
-            subset: primary
+            host: predictyourday-primary
           weight: 100
+        - destination:
+            host: predictyourday-canary
+          weight: 0
