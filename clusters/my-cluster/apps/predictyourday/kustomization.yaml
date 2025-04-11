@@ -5,3 +5,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - canary.yaml
+  - istio-gateway.yaml
+  - istio-virtualservice.yaml
