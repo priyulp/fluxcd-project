@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: predictyourday
+  labels:
+    app: predictyourday
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: predictyourday
+  template:
+    metadata:
+      labels:
+        app: predictyourday
+    spec:
+      containers:
+        - name: predictyourday
+          image: mrakbg/predictyourday:latest-32
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
