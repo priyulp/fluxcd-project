@@ -1,5 +1,5 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 resources:
-  - deployment.yaml
-  - service.yaml
+  - gotk-components.yaml
+  - gotk-sync.yaml
