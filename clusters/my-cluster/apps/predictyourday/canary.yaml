@@ -1,0 +1,26 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: predictyourday
+  namespace: predictyourday
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: predictyourday
+  service:
+    port: 3000
+  analysis:
+    interval: 1m             # Time between metric checks
+    threshold: 5             # Max failures before rollback
+    maxWeight: 50            # Max % of traffic to canary
+    stepWeight: 10           # % traffic to shift per step
+    metrics:
+      - name: request-success-rate
+        thresholdRange:
+          min: 99
+        interval: 30s
+      - name: request-duration
+        thresholdRange:
+          max: 500
+        interval: 30s
