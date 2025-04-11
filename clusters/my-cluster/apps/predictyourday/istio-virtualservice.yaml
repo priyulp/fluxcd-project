@@ -5,14 +5,18 @@ metadata:
   namespace: predictyourday
 spec:
   gateways:
-    - predictyourday-gateway  # Change from "mesh" to this
+    - predictyourday-gateway  # 👈 external gateway
   hosts:
     - "*"
   http:
     - route:
         - destination:
             host: predictyourday-primary
+            port:
+              number: 3000
           weight: 100
         - destination:
             host: predictyourday-canary
+            port:
+              number: 3000
           weight: 0
