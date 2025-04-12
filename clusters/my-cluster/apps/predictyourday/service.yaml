@@ -6,6 +6,7 @@ spec:
   selector:
     app: predictyourday
   ports:
+    - name: http 
     - protocol: TCP
       port: 80
       targetPort: 3000
