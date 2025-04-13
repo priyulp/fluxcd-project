@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: predictyourday
-          image: Mrakbg/Predictyourday/v2
+          image: mrakbg/predictyourday/v2
           ports:
             - containerPort: 3000
           readinessProbe:
