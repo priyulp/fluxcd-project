@@ -13,10 +13,10 @@ spec:
         - destination:
             host: predictyourday-primary
             port:
-              number: 80
+              number: 3000
           weight: 50
         - destination:
             host: predictyourday-canary
             port:
-              number: 80
+              number: 3000
           weight: 50
